@@ -13,9 +13,15 @@ import {
 import QRcode from '~/assets/qrcode.png';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Menu() {
+export default function Menu({translateY}) {
   return (
-    <Container>
+    <Container
+      style={{
+        opacity: translateY.interpolate({
+          inputRange: [0, 150],
+          outputRange: [0, 1],
+        }),
+      }}>
       <Code>
         <Img source={QRcode} />
       </Code>
